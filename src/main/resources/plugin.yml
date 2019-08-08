@@ -1,0 +1,8 @@
+name: SilkSpawners
+main: de.candc.SilkSpawners
+version: 1.6
+author: CandC_9_12
+api-version: 1.13
+
+commands:
+  spawner:
