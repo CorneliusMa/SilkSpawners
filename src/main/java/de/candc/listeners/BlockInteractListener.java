@@ -103,7 +103,11 @@ public class BlockInteractListener implements Listener {
         !(newVersionEggIDList.contains(p.getInventory().getItemInMainHand().getType().getId()))
          */
 
-        if(!(newVersionEggIDList.contains(p.getInventory().getItemInHand().getType().getId()))) {
+        if(!(e.getClickedBlock().getType() == Material.MOB_SPAWNER)) {
+            return;
+        }
+
+        if(!(p.getInventory().getItemInHand().getType() == Material.MONSTER_EGG)) {
             return;
         }
 
