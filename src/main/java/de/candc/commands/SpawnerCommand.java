@@ -64,7 +64,7 @@ public class SpawnerCommand implements CommandExecutor, TabCompleter {
             }
 
             if(args[0].equalsIgnoreCase("give")) {
-                ItemStack is = new ItemBuilder(Material.MOB_SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build();
+                ItemStack is = new ItemBuilder(Material.SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build();
                 t.getInventory().addItem(is);
             } else {
                 int count = 0;
@@ -87,7 +87,7 @@ public class SpawnerCommand implements CommandExecutor, TabCompleter {
                         if (is.getItemMeta().getLore().get(0).equalsIgnoreCase("§e" + entityType.getName())) {
                             if(is.getAmount() > amount - count) {
                                 t.getInventory().remove(is);
-                                t.getInventory().addItem(new ItemBuilder(Material.MOB_SPAWNER, is.getAmount() - count).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build());
+                                t.getInventory().addItem(new ItemBuilder(Material.SPAWNER, is.getAmount() - count).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build());
                             } else {
                                 t.getInventory().remove(is);
                             }
@@ -149,7 +149,7 @@ public class SpawnerCommand implements CommandExecutor, TabCompleter {
         }
 
         if(args[0].equalsIgnoreCase("give")) {
-            ItemStack is = new ItemBuilder(Material.MOB_SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build();
+            ItemStack is = new ItemBuilder(Material.SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build();
             t.getInventory().addItem(is);
         } else {
             int count = 0;
@@ -166,7 +166,7 @@ public class SpawnerCommand implements CommandExecutor, TabCompleter {
                 return false;
             }
 
-            t.getInventory().remove(new ItemBuilder(Material.MOB_SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build());
+            t.getInventory().remove(new ItemBuilder(Material.SPAWNER, amount).addToLore("§e" + entityType.getName().substring(0, 1).toUpperCase() + entityType.getName().substring(1).toLowerCase()).build());
         }
         return false;
     }
@@ -193,7 +193,7 @@ public class SpawnerCommand implements CommandExecutor, TabCompleter {
         } else if(args.length == 3) {
             for (EntityType type : EntityType.values()) {
                 if (type.isAlive() && type.isSpawnable()) {
-                    list.add(type.getName().substring(0, 1).toUpperCase() + type.getName().substring(1).toLowerCase());
+                    list.add(type.name().substring(0, 1).toUpperCase() + type.getName().substring(1).toLowerCase());
                 }
             }
         }

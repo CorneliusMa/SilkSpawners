@@ -30,7 +30,7 @@ public class BlockBreakListener implements Listener {
 
         if(p.getInventory().getItemInHand() != null) {
             if(p.getInventory().getItemInHand().containsEnchantment(Enchantment.SILK_TOUCH)) {
-                if (e.getBlock().getType() == Material.MOB_SPAWNER && p.hasPermission("silkspawners.break")) {
+                if (e.getBlock().getType() == Material.SPAWNER && p.hasPermission("silkspawners.break")) {
                     if(!e.isCancelled()) {
                         e.setExpToDrop(0);
 
@@ -38,7 +38,7 @@ public class BlockBreakListener implements Listener {
 
                         CreatureSpawner cs = (CreatureSpawner) b.getState();
                         EntityType spawnedEntity = cs.getSpawnedType();
-                        ItemStack is = new ItemBuilder(Material.MOB_SPAWNER).addToLore("§e" + spawnedEntity.getName().substring(0, 1).toUpperCase() + spawnedEntity.getName().substring(1).toLowerCase()).build();
+                        ItemStack is = new ItemBuilder(Material.SPAWNER).addToLore("§e" + spawnedEntity.getName().substring(0, 1).toUpperCase() + spawnedEntity.getName().substring(1).toLowerCase()).build();
                         SpawnerBreakEvent event = new SpawnerBreakEvent(p, spawnedEntity, b);
                         Bukkit.getPluginManager().callEvent(event);
                         if(!event.isCancelled()) {

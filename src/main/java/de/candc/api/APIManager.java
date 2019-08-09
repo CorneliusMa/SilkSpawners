@@ -23,6 +23,12 @@ public class APIManager {
     private APIManager() {}
 
     public SilkSpawnersAPI loadAPI() {
-        return spawnedEntity -> new ItemBuilder(Material.MOB_SPAWNER).addToLore("§e" + spawnedEntity.getName().substring(0, 1).toUpperCase() + spawnedEntity.getName().substring(1).toLowerCase()).build();
+        return spawnedEntity -> new ItemBuilder(Material.SPAWNER).addToLore("§e" + spawnedEntity.getName().substring(0, 1).toUpperCase() + spawnedEntity.getName().substring(1).toLowerCase()).build();
+    }
+
+    public static APIManager getInstance()
+    {
+        return instance;
     }
 }
+

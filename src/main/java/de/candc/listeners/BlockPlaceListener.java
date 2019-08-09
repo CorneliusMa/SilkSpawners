@@ -27,13 +27,14 @@ public class BlockPlaceListener implements Listener {
         Player p = e.getPlayer();
 
         if(p.getInventory().getItemInHand() != null) {
-            if(p.getInventory().getItemInHand().getType() == Material.MOB_SPAWNER) {
+            if(p.getInventory().getItemInHand().getType() == Material.SPAWNER) {
                 if(p.getInventory().getItemInHand().getItemMeta().getLore() != null) {
-                    if (e.getBlock().getType() == Material.MOB_SPAWNER && p.hasPermission("silkspawners.place")) {
+                    if (e.getBlock().getType() == Material.SPAWNER && p.hasPermission("silkspawners.place")) {
                         if (!e.isCancelled()) {
                             String name = p.getInventory().getItemInHand().getItemMeta().getLore().get(0).replaceAll("§e", "");
 
-                            Bukkit.getScheduler().runTaskLater(SilkSpawners.getInstance(), () -> {
+                            Bukkit.getScheduler().runTaskLater(SilkSpawners.getInstance(), () ->
+                            {
                                 Block b = e.getBlockPlaced();
                                 EntityType entityType = EntityType.fromName(name);
 

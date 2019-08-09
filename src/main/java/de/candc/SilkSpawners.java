@@ -18,7 +18,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Contract;
 
-public class SilkSpawners extends JavaPlugin {
+public class SilkSpawners extends JavaPlugin
+{
 
     @Getter
     private static SilkSpawners instance;
@@ -69,5 +70,10 @@ public class SilkSpawners extends JavaPlugin {
         pm.registerEvents(new BlockPlaceListener(), this);
         pm.registerEvents(new BlockBreakListener(), this);
         pm.registerEvents(new BlockInteractListener(), this);
+    }
+
+    public static SilkSpawners getInstance()
+    {
+        return instance;
     }
 }
